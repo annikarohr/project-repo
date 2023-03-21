@@ -57,6 +57,7 @@ df.head()
 import matplotlib.pyplot as plt
 import seaborn as sns 
 
+plt.figure()
 grade_order = ["A","B","C","D","E","F"]
 sns.countplot("Grade_math", data = df, order = grade_order, palette = "crest")
 plt.xlabel("Math Grades")
@@ -64,6 +65,22 @@ plt.ylabel("Number of students")
 plt.title("Distribution of Math Grades")
 plt.ylim(0, 300)
 
+#2 distribution of reading grades
 
+plt.figure()
+sns.countplot("Grade_reading", data = df, order = grade_order, palette = "flare")
+plt.xlabel("Reading Grades")
+plt.ylabel("Number of students")
+plt.title("Distribution of Reading Grades")
+plt.ylim(0, 300)
+
+#3 distribution of writing grades
+
+plt.figure()
+sns.countplot("Grade_writing", data = df, order = grade_order, palette = "YlOrRd")
+plt.xlabel("Writing Grades")
+plt.ylabel("Number of students")
+plt.title("Distribution of Writing Grades")
+plt.ylim(0, 300)
 
 
