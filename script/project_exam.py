@@ -83,7 +83,7 @@ plt.ylabel("Number of students")
 plt.title("Distribution of Writing Grades")
 plt.ylim(0, 300)
 
-#Is there a correlation between owriting and reading?
+#Is there a correlation between writing and reading?
 
 reading = df["reading score"]
 writing = df["writing score"]
@@ -94,6 +94,8 @@ plt.xlabel("Reading Score")
 plt.ylabel("Writing Score")
 plt.title("Correlation between reading and writing Score")
 
+
+np.corrcoef(reading, writing)[0,1]
            
 
 
