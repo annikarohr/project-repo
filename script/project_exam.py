@@ -9,7 +9,7 @@ Created on Mon Mar 20 17:05:56 2023
 import pandas as pd 
 import numpy as np
 
-file = "/Users/Annika/Documents/GitHub/project-repo/data/StudentsPerformance.csv"
+file = "/Users/Annika/Documents/GitHub/project-repo/project-repo/data/StudentsPerformance.csv"
 df = pd.read_csv(file)
 data = df
 
@@ -51,4 +51,19 @@ df["Grade_reading"] = df["reading score"].apply(lambda s: Grade(s))
 df["Grade_writing"] = df["writing score"].apply(lambda s: Grade(s))
 df["Overall_grade"] = df["Percentage"].apply(lambda s: Grade(s))
 df.head()
+
+#1 distribution of the math grades
+
+import matplotlib.pyplot as plt
+import seaborn as sns 
+
+grade_order = ["A","B","C","D","E","F"]
+sns.countplot("Grade_math", data = df, order = grade_order, palette = "crest")
+plt.xlabel("Math Grades")
+plt.ylabel("Number of students")
+plt.title("Distribution of Math Grades")
+plt.ylim(0, 300)
+
+
+
 
