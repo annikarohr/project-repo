@@ -17,8 +17,8 @@ data = df
 
 #visualizing the 3 scores of 1 person
 #from all people: what exam got the highest grades?
-#is there a correlation bewtween preperation course and score?
-#is there a correlation bewtween parental degree and score?
+#is there a correlation between preperation course and score?
+#is there a correlation between parental degree and score?
 #gender and math score
 #gender and reading score
 
@@ -59,7 +59,7 @@ import seaborn as sns
 
 plt.figure()
 grade_order = ["A","B","C","D","E","F"]
-sns.countplot("Grade_math", data = df, order = grade_order, palette = "crest")
+sns.countplot("Grade_math", data = df, order = grade_order, palette = "crest_r")
 plt.xlabel("Math Grades")
 plt.ylabel("Number of students")
 plt.title("Distribution of Math Grades")
@@ -68,7 +68,7 @@ plt.ylim(0, 300)
 #2 distribution of reading grades
 
 plt.figure()
-sns.countplot("Grade_reading", data = df, order = grade_order, palette = "flare")
+sns.countplot("Grade_reading", data = df, order = grade_order, palette = "flare_r")
 plt.xlabel("Reading Grades")
 plt.ylabel("Number of students")
 plt.title("Distribution of Reading Grades")
@@ -77,10 +77,24 @@ plt.ylim(0, 300)
 #3 distribution of writing grades
 
 plt.figure()
-sns.countplot("Grade_writing", data = df, order = grade_order, palette = "YlOrRd")
+sns.countplot("Grade_writing", data = df, order = grade_order, palette = "YlOrRd_r")
 plt.xlabel("Writing Grades")
 plt.ylabel("Number of students")
 plt.title("Distribution of Writing Grades")
 plt.ylim(0, 300)
+
+#Is there a correlation between owriting and reading?
+
+reading = df["reading score"]
+writing = df["writing score"]
+
+fig, ax = plt.subplots()
+ax.scatter(x=reading, y=writing, c="seagreen", edgecolors = "darkseagreen", alpha = 0.6, s = 8)
+plt.xlabel("Reading Score")
+plt.ylabel("Writing Score")
+plt.title("Correlation between reading and writing Score")
+
+           
+
 
 
