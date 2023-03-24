@@ -83,8 +83,9 @@ plt.ylabel("Number of students")
 plt.title("Distribution of Writing Grades")
 plt.ylim(0, 300)
 
-#Is there a correlation between writing and reading?
+#4 Is there a correlation between writing and reading?
 
+plt.figure()
 reading = df["reading score"]
 writing = df["writing score"]
 
@@ -95,7 +96,90 @@ plt.ylabel("Writing Score")
 plt.title("Correlation between reading and writing Score")
 
 
-np.corrcoef(reading, writing)[0,1]
+correlation = np.corrcoef(reading, writing)[0,1]
+print(correlation)
+
+#As you could already see from the scatterplot, there is a positive correlation of 0.95 between reading and writing scores
+
+
+#5 Distribution of male and female with a pie chart
+
+gender = df["gender"]
+
+filter_female = df["gender"] == "female"
+filter_male = df["gender"] == "male"
+
+print(df['gender'].value_counts()['male'])     
+print(df['gender'].value_counts()['female'])  
+
+amount_male = 482
+amount_female = 518
+
+gender = ["Female", "Male"]
+g_amount = [518,482]
+g_colors = ["crimson", "steelblue"]
+
+
+def make_autopct(g_amount):
+    def my_autopct(pct):
+        total = sum(g_amount)
+        val = int(round(pct*total/100.0))
+        return '{p:.2f}%  ({v:d})'.format(p=pct,v=val)
+    return my_autopct
+
+fig, ax = plt.subplots()
+plt.pie(g_amount, labels = gender, colors = g_colors, wedgeprops={'linewidth': 1.5, 'edgecolor': 'white'}, autopct = make_autopct(g_amount))
+plt.title("Amount of Females and Males")
+
+
+# catplot for gender and grades
+
+plt.figure()
+sns.countplot(x = "gender", data = df, hue = "Overall_grade", hue_order = [grade_order], palette = "Paired")
+plt.xlabel("Gender")
+plt.ylabel("Number of students")
+plt.title("Gender Difference in Exam Performance")
+plt.ylim(0, 160)
+
+
+#Pie chart of course preparation
+
+filter_completed = df["test preparation course"] == "completed"
+filter_none = df["test preparation course"] == "none"
+
+print(df['test preparation course'].value_counts()['completed'])     
+print(df['test preparation course'].value_counts()['none'])  
+
+amount_completed = 358
+amount_none = 642
+
+course_prep = ["completed", "none"]
+prep_amount = [358,642]
+prep_colors = ["mediumseagreen", "tomato"]
+
+def make_autopct(prep_amount):
+    def my_autopct(pct):
+        total = sum(prep_amount)
+        val = int(round(pct*total/100.0))
+        return '{p:.2f}%  ({v:d})'.format(p=pct,v=val)
+    return my_autopct
+
+fig, ax = plt.subplots()
+plt.pie(prep_amount, labels = course_prep, colors = prep_colors, wedgeprops={'linewidth': 1.5, 'edgecolor': 'white'}, autopct = make_autopct(prep_amount))
+plt.title("Course Preparation")
+
+
+#Preparation for the Exam and outcome
+
+plt.figure()
+sns.countplot(x = "test preparation course", hue = "Overall_grade", data = df, hue_order = grade_order, palette = 'Paired')
+plt.legend()
+plt.xlabel("Preparation Course")
+plt.ylabel("Number of students")
+plt.title("Preparation vs. no Preparation for the Exam")
+plt.ylim(0, 180)
+
+
            
 
 
