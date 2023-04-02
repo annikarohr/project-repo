@@ -1,7 +1,11 @@
 
 # Analysis of Students Performance in Exams
 
+<<<<<<< Updated upstream
 This project is part of the course PSY-3006. It includes an analysis of a data file from kaggle about students performance in three different exams.
+=======
+This project is part of the course PSY-3006 and was written by Annika Rohr. It includes an analysis of a data file from kaggle about students performance in three different exams.
+>>>>>>> Stashed changes
 The analysis is visualized trough multiple bar graphs, pie charts and scatterplots. 
 
 Here is the link to the data: https://www.kaggle.com/datasets/spscientist/students-performance-in-exams?resource=download

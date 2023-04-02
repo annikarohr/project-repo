@@ -15,9 +15,8 @@ data = df
 
 #IDEAS
 
-#visualizing the 3 scores of 1 person
 #from all people: what exam got the highest grades?
-#is there a correlation between preperation course and score?
+
 #is there a correlation between parental degree and score?
 #gender and math score
 #gender and reading score
@@ -101,8 +100,24 @@ print(correlation)
 
 #As you could already see from the scatterplot, there is a positive correlation of 0.95 between reading and writing scores
 
+#5 Correlation of math and reading score 
 
-#5 Distribution of male and female with a pie chart
+plt.figure()
+reading = df["reading score"]
+math = df["math score"]
+
+fig, ax = plt.subplots()
+ax.scatter(x=reading, y=writing, c="orange", edgecolors = "darkorange", alpha = 0.6, s = 8)
+plt.xlabel("Reading Score")
+plt.ylabel("Math Score")
+plt.title("Correlation between reading and math Score")
+
+
+correlation = np.corrcoef(reading, math)[0,1]
+print(correlation)  #positive linear correlation of 0.82
+
+
+#6 Distribution of male and female with a pie chart
 
 gender = df["gender"]
 
@@ -132,7 +147,7 @@ plt.pie(g_amount, labels = gender, colors = g_colors, wedgeprops={'linewidth': 1
 plt.title("Amount of Females and Males")
 
 
-# catplot for gender and grades
+#7 catplot for gender and grades
 
 plt.figure()
 sns.countplot(x = "gender", data = df, hue = "Overall_grade", hue_order = [grade_order], palette = "Paired")
@@ -142,7 +157,7 @@ plt.title("Gender Difference in Exam Performance")
 plt.ylim(0, 160)
 
 
-#Pie chart of course preparation
+#8 Pie chart of course preparation
 
 filter_completed = df["test preparation course"] == "completed"
 filter_none = df["test preparation course"] == "none"
@@ -169,10 +184,10 @@ plt.pie(prep_amount, labels = course_prep, colors = prep_colors, wedgeprops={'li
 plt.title("Course Preparation")
 
 
-#Preparation for the Exam and outcome
+#9 Preparation for the Exam and outcome
 
 plt.figure()
-sns.countplot(x = "test preparation course", hue = "Overall_grade", data = df, hue_order = grade_order, palette = 'Paired')
+sns.countplot(x = "test preparation course", hue = "Overall_grade", data = df, hue_order = grade_order,palette = "Paired")
 plt.legend()
 plt.xlabel("Preparation Course")
 plt.ylabel("Number of students")
@@ -180,7 +195,22 @@ plt.title("Preparation vs. no Preparation for the Exam")
 plt.ylim(0, 180)
 
 
-           
+#10 gender and course preparation
+
+colors_np = ["tomato", "mediumseagreen"]
+
+plt.figure()
+sns.countplot(x = "gender", data = df, hue = "test preparation course", color = "colors_np")
+plt.xlabel("Gender")
+plt.ylabel("Number of students")
+plt.title("Gender Difference in Course Preparation")
+ #####can`t change width or relocate legend and color error???
+ 
+Errors:
+#10 #can`t change width or relocate legend and color error???
+#9 and #8 and #7 plot doesn't show 
+
+
 
 
 
