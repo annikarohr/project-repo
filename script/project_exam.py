@@ -13,13 +13,6 @@ file = "/Users/Annika/Documents/GitHub/project-repo/project-repo/data/StudentsPe
 df = pd.read_csv(file)
 data = df
 
-#IDEAS
-
-#from all people: what exam got the highest grades?
-
-#is there a correlation between parental degree and score?
-#gender and math score
-#gender and reading score
 
 #Adding the total marks of each student and the percentage of total marks to the dataset
 
@@ -206,9 +199,6 @@ plt.ylabel("Number of students")
 plt.title("Gender Difference in Course Preparation")
  #####can`t change width or relocate legend and color error???
  
-Errors:
-#10 #can`t change width or relocate legend and color error???
-#9 and #8 and #7 plot doesn't show 
 
 
 
