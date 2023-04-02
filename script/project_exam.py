@@ -193,11 +193,11 @@ plt.ylim(0, 180)
 colors_np = ["tomato", "mediumseagreen"]
 
 plt.figure()
-sns.countplot(x = "gender", data = df, hue = "test preparation course", color = "colors_np")
+sns.countplot(x = "gender", data = df, hue = "test preparation course", color = colors_np)
 plt.xlabel("Gender")
 plt.ylabel("Number of students")
 plt.title("Gender Difference in Course Preparation")
- #####can`t change width or relocate legend and color error???
+
  
 
 
